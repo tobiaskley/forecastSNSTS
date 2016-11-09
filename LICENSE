@@ -1,0 +1,5 @@
+The data and code in this repository is licensed under multiple licenses.
+
+- All R code in the /R directory and C++ code in the /src directory is licensed under the GNU General Public License v3 (GPL-3).
+
+- Source data in /data is licensed under the Open Government License for public sector information - version 3.0. See http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/.
