@@ -40,7 +40,7 @@ using namespace Rcpp;
 //' @param t a vector of values \eqn{t}; the elements have to satisfy
 //'            \code{max(t) <= length(X)} and  \code{min(t) >= min(max(N[N != 0]),p)}.
 //' @param N a vector of values \eqn{N}; the elements have to satisfy
-//'            \code{max(N[N != 0]) <= min(t)} and \code{min(N[N != 0]) >= 1+P}.
+//'            \code{max(N[N != 0]) <= min(t)} and \code{min(N[N != 0]) >= 1 + P}.
 //'            \eqn{N = 0} corresponds to the case where all data is taken into account.
 //'
 //' @return Returns a named list with elements \code{coef}, \code{t}, and \code{N},
@@ -67,14 +67,14 @@ using namespace Rcpp;
 //' H <- 1
 //' m <- 20
 //'
-//' Nmin <- 50
+//' Nmin <- 25
 //' pcoef <- predCoef(X, P, H, (T - m - H + 1):T, c(0, seq(Nmin, T - m - H, 1)))
 //' 
 //' ## Access the prediction vector for p = 2, h = 1, t = 95, N = 25
 //' p <- 2
 //' h <- 1
 //' t <- 95
-//' N <- 25
+//' N <- 35
 //' res <- pcoef$coef[p, 1:p, h, pcoef$t == t, pcoef$N == N]
 //################################################################################
 

@@ -14,7 +14,7 @@ MSPE(X, predcoef, m1 = length(X)/10, m2 = length(X), P = 1, H = 1,
          \code{coef}, and two integer vectors \code{t}    and \code{N}. The two
        integer vectors provide the information for which indices \eqn{t} and
          segment lengths \eqn{N} the coefficients are to be interpreted;
-(m1-H):(m2-1) has to be a subset of predcoef$t.
+\code{(m1-H):(m2-1)} has to be a subset of \code{predcoef$t}.
          if not provided the necessary coefficients will be computed using
          \code{\link{predCoef}}.}
 
@@ -23,10 +23,10 @@ MSPE(X, predcoef, m1 = length(X)/10, m2 = length(X), P = 1, H = 1,
 \item{m2}{last index from the set in which the indices \eqn{t+h} shall lie}
 
 \item{P}{maximum order of prediction coefficients to be used;
-must not be larger than dim(predcoef$coef)[1].}
+must not be larger than \code{dim(predcoef$coef)[1]}.}
 
 \item{H}{maximum lead time to be used;
-must not be larger than dim(predcoef$coef)[3].}
+must not be larger than \code{dim(predcoef$coef)[3]}.}
 
 \item{N}{vector with the segment sizes to be used, 0 corresponds to
            using 1, ..., t;
