@@ -12,9 +12,10 @@ NULL
 #'  \tabular{ll}{
 #'    \cr Package: \tab forecastSNSTS
 #'    \cr Type:    \tab Package
-#'    \cr Version: \tab 0.0.0-0.9000
-#'    \cr Date:    \tab 2016-11-09
-#'    \cr License: \tab GPL (>= 2)
+#'    \cr Version: \tab 1.0-0
+#'    \cr Date:    \tab 2016-11-10
+#'    \cr License: \tab GPL (>= 2) (for R and C++ code),
+#'    \cr          \tab Open Government License (for data set)
 #'  }
 #'
 #' @section Contents:

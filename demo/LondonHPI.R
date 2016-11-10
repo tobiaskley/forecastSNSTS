@@ -7,13 +7,17 @@ LondonHPI_change <- LondonHPI[2:L]/LondonHPI[1:(L-1)] - 1
 LondonHPI_mean <- mean(LondonHPI_change)
 LondonHPI_adj <- ts(LondonHPI_change - LondonHPI_mean, f = 12, start=c(1995,2))
 
-p_max <- 18
-H <- 5
+L <- length(LondonHPI_adj)
 
-m0 <- 215
-m1 <- 227
-m2 <- 239
-m3 <- 251
+p_max <- 18
+H <- 6
+
+m <- 12
+
+m0 <- L - 3*m # 215
+m1 <- L - 2*m # 227
+m2 <- L - m   # 239
+m3 <- L       # 251
 
 ## Show which observations are in the final part of the training set,
 ## the validation set and the test set, respectively.
@@ -45,13 +49,18 @@ for (h in 1:H) {
   res_e[h, 4] <- N[N != 0 & N >= N_min][idx1_ls[2]]
   res_e[h, 5] <- min(M[h, , N != 0 & N >= N_min])
 }
+
+## Top rows from Table 5 in Kley et al (2016)
 res_e
 
 ## compute the MSPE of the null predictor
 vr <- sum(LondonHPI_adj[(m0 + 1):m1]^2) / (m1 - m0)
 
-## plot the result
-plot(mspe, vr = vr, N_min = N_min, h=1, add.for.legend=15)
+## Top plot from Figure 4 in Kley et al (2016)
+plot(mspe, vr = vr, N_min = N_min, h = 1, add.for.legend=15)
+
+## Bottom plot from Figure 4 in Kley et al (2016)
+plot(mspe, vr = vr, N_min = N_min, h = 6, add.for.legend=15)
 
 ## compute MSPE on the validation set 
 mspe <- MSPE(LondonHPI_adj, coef0, m1 + 1, m2, p_max, H, Ns)
@@ -66,12 +75,8 @@ res_v <- matrix(0, nrow = H, ncol = 3)
 for (h in 1:H) {
   res_v[h, 1] <- M[h, res_e[h, 1], N == 0]
   res_v[h, 2] <- M[h, res_e[h, 3], N == res_e[h, 4]]
-  res_v[h, 3] <- (res_v[h, 1] <= res_v[h, 2])
+  res_v[h, 3] <- res_v[h, 1] / res_v[h, 2]
 }
-
-## here a 1 in row h and column 3 indicates whether the stationary approach
-## outperformed the locally stationary approach for h
-res_v
 
 ## compute MSPE on the validation set 
 mspe <- MSPE(LondonHPI_adj, coef0, m2 + 1, m3, p_max, H, Ns)
@@ -86,9 +91,8 @@ res_t <- matrix(0, nrow = H, ncol = 3)
 for (h in 1:H) {
   res_t[h, 1] <- M[h, res_e[h, 1], N == 0]
   res_t[h, 2] <- M[h, res_e[h, 3], N == res_e[h, 4]]
-  res_t[h, 3] <- (res_t[h, 1] <= res_t[h, 2])
+  res_t[h, 3] <- res_t[h, 1] / res_t[h, 2]
 }
 
-## here a 1 in row h and column 3 indicates whether the stationary approach
-## outperformed the locally stationary approach for h
+## Bottom rows from Table 5 in Kley et al (2016)
 cbind(res_v, res_t)

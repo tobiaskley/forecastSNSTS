@@ -149,7 +149,7 @@ List predCoef(NumericVector X, int P, int H, IntegerVector t, IntegerVector N) {
          int n = x.size();
    
          // BEGIN Durbin-Levinson algorithm 
-         double rmat [P][P];
+         std::vector< std::vector<double> > rmat(P, std::vector<double>(P,0));
 
          NumericVector gamma(P+1);
          NumericVector sigma(P);
@@ -187,7 +187,7 @@ List predCoef(NumericVector X, int P, int H, IntegerVector t, IntegerVector N) {
          
          // END Durbin-Levinson algorithm
    
-         double vmat [P][P];
+         std::vector< std::vector<double> > vmat(P, std::vector<double>(P,0));
          for (int i = 0; i < P; i++) {
             for (int j = 0; j <= i; j++) {
                vmat[i][j] = rmat[i][j];
