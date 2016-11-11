@@ -15,9 +15,8 @@ prediction errors from the resulting predictors.
    \cr Package: \tab forecastSNSTS
    \cr Type:    \tab Package
    \cr Version: \tab 1.0-0
-   \cr Date:    \tab 2016-11-10
-   \cr License: \tab GPL (>= 2) (for R and C++ code),
-   \cr          \tab Open Government License (for data set)
+   \cr Date:    \tab 2016-11-11
+   \cr License: \tab GPL (>= 2)
  }
 }
 \section{Contents}{

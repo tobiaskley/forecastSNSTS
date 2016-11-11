@@ -9,7 +9,7 @@ Description: Methods to compute linear h-step prediction coefficients based
     prediction errors from the resulting predictors.
 Depends:
     R (>= 3.2.3)
-License: file LICENSE
+License: GPL (>= 2)
 URL: http://github.com/tobiaskley/forecastSNSTS
 BugReports: http://github.com/tobiaskley/forecastSNSTS/issues
 Encoding: UTF-8
@@ -19,7 +19,6 @@ Imports:
     Rcpp
 Collate:
     'RcppExports.R'
-    'data.R'
     'forecastSNSTS-package.R'
     'models.R'
     'mspe.R'

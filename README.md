@@ -32,7 +32,7 @@ help("forecastSNSTS")
 A demo is available. It can be started by
 
 ```
-demo("LondonHPI")
+demo("tvARMA11")
 ```
 
 At the bottom of the online help page to the package you will find an index to all the help files available.
