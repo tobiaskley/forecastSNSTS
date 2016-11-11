@@ -8,7 +8,7 @@
 \description{
 Methods to compute linear \eqn{h}-step prediction coefficients based on
 localised and iterated Yule-Walker estimates and empirical mean square
-prediction errors from the resulting predictors.
+prediction errors for the resulting predictors.
 }
 \details{
 \tabular{ll}{
