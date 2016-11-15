@@ -19,7 +19,7 @@ Imports:
     Rcpp
 Collate:
     'RcppExports.R'
-    'autocov_ARp.R'
+    'acfARp.R'
     'forecastSNSTS-package.R'
     'models.R'
     'mspe.R'
