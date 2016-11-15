@@ -26,7 +26,7 @@ Returns a tvARMA(p,q) time series with specified parameters.
 \description{
 Returns a simulated time series \eqn{Y_{1,T}, ..., Y_{T,T}} that fulfills
 the following equation:
-\deqn{Y_{t,T} = \sum_{j=1}^q a_j(t/T) Y_{t-j,T} + \sigma(t/T) \varepsilon_{t} + \sum_{k=1}^q \sigma((t-k)/T) b_k(t/T) \varepsilon_{t-k},}
+\deqn{Y_{t,T} = \sum_{j=1}^p a_j(t/T) Y_{t-j,T} + \sigma(t/T) \varepsilon_{t} + \sum_{k=1}^q \sigma((t-k)/T) b_k(t/T) \varepsilon_{t-k},}
 where \eqn{a_1, \ldots, a_p, b_0, b_1, \ldots, b_q} are real-valued functions on \eqn{[0,1]},
 \eqn{\sigma} is a positive function on \eqn{[0,1]} and \eqn{\varepsilon_t}
 is white noise.

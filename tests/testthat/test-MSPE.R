@@ -75,10 +75,10 @@ test_that("parameter validation works properly", {
   predcoef_not_right_dim5 <- list(coef = array(dim = c(P,P,H,m2-m1+1,length(N))), t = (m1+1):(m2+1), N = N)
   expect_error( cppRes <- MSPE(X, predcoef_not_right_dim5, m1, m2+1, P, H, N) )
   
-  predcoef_too_few_N <- list(coef = array(dim = c(P,P,H,m2-m1+1,length(N))), t = (m1+1):m2, N = 10:11)
-  expect_error( cppRes <- MSPE(X, predcoef_too_few_N, m1, m2, P, H, 10:11) )
+  predcoef_too_few_N <- list(coef = array(dim = c(P,P,H,m2-m1+1,length(N))), t = (m1+1):m2, N = N)
+  expect_error( cppRes <- MSPE(X, predcoef_too_few_N, m1, m2, P, H, 10:13) )
 
-  predcoef_too_few_t <- list(coef = array(dim = c(P,P,H,m2-m1+1,length(N))), t = m1:m2, N = 10:11)
-  expect_error( cppRes <- MSPE(X, predcoef_too_few_t, m1, m2, P, H, N) )
+  predcoef_too_few_t <- list(coef = array(dim = c(P,P,H,m2-m1+1,length(N))), t = (m1+1):m2, N = N)
+  expect_error( cppRes <- MSPE(X, predcoef_too_few_t, m1, m2+1, P, H, N) )
   
 })
