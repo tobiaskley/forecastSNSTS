@@ -57,10 +57,6 @@
 #' Brockwell, P. J. & Davis, R. A. (1991).
 #' Time Series: Theory and Methods. Springer, New York.
 #'
-#' Kley, T., Preuss, P. & Fryzlewicz, P. (2016).
-#' Predictive model choice in time series analysis under stationarity and non-stationarity.
-#' [cf. \url{personal.lse.ac.uk/kley/forecastLSTS.pdf}]
-#'
 #' @examples
 #' T <- 100
 #' X <- rnorm(T)

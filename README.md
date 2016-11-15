@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tobiaskley/forecastSNSTS.svg?branch=develop)](https://travis-ci.org/tobiaskley/quantspec)
+[![Build Status](https://travis-ci.org/tobiaskley/forecastSNSTS.svg?branch=develop)](https://travis-ci.org/tobiaskley/forecastSNSTS)
 [![Coverage Status](https://img.shields.io/codecov/c/github/tobiaskley/forecastSNSTS/develop.svg)](https://codecov.io/github/tobiaskley/forecastSNSTS?branch=develop)
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/forecastSNSTS)](http://cran.r-project.org/web/packages/forecastSNSTS/index.html)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/forecastSNSTS)](http://cran.r-project.org/package=forecastSNSTS)

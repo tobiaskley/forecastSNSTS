@@ -14,8 +14,8 @@ prediction errors for the resulting predictors.
 \tabular{ll}{
    \cr Package: \tab forecastSNSTS
    \cr Type:    \tab Package
-   \cr Version: \tab 1.0-0
-   \cr Date:    \tab 2016-11-11
+   \cr Version: \tab 1.0-0.9000
+   \cr Date:    \tab 2016-11-15
    \cr License: \tab GPL (>= 2)
  }
 }
@@ -35,6 +35,6 @@ Tobias Kley
 \references{
 Kley, T., Preuss, P. & Fryzlewicz, P. (2016).
 Predictive, finite-sample model choice for time series under stationarity and non-stationarity.
-[cf. \url{personal.lse.ac.uk/kley/forecastSNSTS.pdf}]
+[cf. \url{https://arxiv.org/abs/1611.04460}]
 }
 
