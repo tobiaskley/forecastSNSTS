@@ -1,6 +1,6 @@
 Package: forecastSNSTS
 Title: Forecasting for Stationary and Non-Stationary Time Series
-Version: 1.0-0
+Version: 1.0-0.9000
 Authors@R: c(person("Tobias", "Kley", email = "t.kley@lse.ac.uk", role = c("aut", "cre")),
              person("Philip", "Preuss", email = "philip.preuss@rub.de", role = c("aut")),
              person("Piotr", "Fryzlewicz", email = "p.fryzlewicz@lse.ac.uk", role = c("aut")))
