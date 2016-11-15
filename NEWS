@@ -3,5 +3,4 @@ forecastSNSTS 1.0-0
 
  o two functions to compute linear prediction coefficients and mean squared
    prediction errors.
- o London Housing Price Index (HPI) dataset
- o demo on how to analyse the London HPI
+ o demo on how to analyse, using a simulated tvARMA(1,1) time series
