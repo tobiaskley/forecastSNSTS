@@ -4,16 +4,18 @@ NULL
 ################################################################################
 #' Forecasting of Stationary and Non-Stationary Time Series
 #'
-#' Methods to compute linear \eqn{h}-step prediction coefficients based on
-#' localised and iterated Yule-Walker estimates and empirical mean square
-#' prediction errors for the resulting predictors.
+#' Methods to compute linear \eqn{h}-step ahead prediction coefficients based
+#' on localised and iterated Yule-Walker estimates and empirical mean squared
+#' prediction errors for the resulting predictors. Also, functions to compute
+#' autocovariances for AR(p) processes, to simulate tvARMA(p,q) time series,
+#' and to verify an assumption from a paper by the authors.
 #'
 #' @details
 #'  \tabular{ll}{
 #'    \cr Package: \tab forecastSNSTS
 #'    \cr Type:    \tab Package
-#'    \cr Version: \tab 1.0-0.9000
-#'    \cr Date:    \tab 2016-11-15
+#'    \cr Version: \tab 1.1-0
+#'    \cr Date:    \tab 2016-11-16
 #'    \cr License: \tab GPL (>= 2)
 #'  }
 #'
@@ -24,10 +26,8 @@ NULL
 #' the empirical mean squared prediciton erros. Further, the function
 #' \code{\link{f}} can be used to verify condition (10) of Theorem 3.1 in
 #' Kley et al (2016) for any given tvAR(p) model.
-#' 
-#' The function \code{\link{tvARMA}} can be used to simulate time varying
+#' The function \code{\link{tvARMA}} can be used to simulate time-varying
 #' ARMA(p,q) time series.
-#' 
 #' The function \code{\link{acfARp}} computes the autocovariances of a AR(p)
 #' process from the coefficients and innovations standard deviation.
 #' 

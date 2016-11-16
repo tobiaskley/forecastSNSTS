@@ -9,7 +9,10 @@ forecastSNSTS: Forecasting of Stationary and Non-Stationary Time Series
 
 The `forecastSNSTS` package provides methods to compute linear h-step prediction coefficients based on localised and iterated Yule-Walker estimates and empirical mean square prediction errors from the resulting predictors.
 
-You can track (and contribute to) the development of `forecastSNSTS` at https://github.com/tobiaskley/forecastSNSTS. If you encounter unexpected behavior while using `forecastSNSTS`, please write an [email](mailto:t.kley@lse.ac.ul) or file an [issue](http://github.com/tobiaskley/forecastSNSTS/issues).
+It is intended to support the paper
+[Predictive, finite-sample model choice for time series under stationarity and non-stationarity](https://arxiv.org/abs/1611.04460), which we refer to as Kley et al (2016).
+
+You can track (and contribute to) the development of `forecastSNSTS` at https://github.com/tobiaskley/forecastSNSTS. If you encounter unexpected behaviour while using `forecastSNSTS`, please write an [email](mailto:t.kley@lse.ac.ul) or file an [issue](http://github.com/tobiaskley/forecastSNSTS/issues).
 
 ## Getting started with ``forecastSNSTS``
 
@@ -36,3 +39,7 @@ demo("tvARMA11")
 ```
 
 At the bottom of the online help page to the package you will find an index to all the help files available.
+
+## Replicating the examples of the paper with ``forecastSNSTSexamples``
+
+Note that there is a separate R package, called [forecastSNSTSexamples](http://github.com/tobiaskley/forecastSNSTSexamples) and available only on GitHub, that can be used to replicate the empirical examples from Section 5 of Kley et al (2016). 

@@ -10,7 +10,7 @@ MSPE(X, predcoef, m1 = length(X)/10, m2 = length(X), P = 1, H = 1,
 \arguments{
 \item{X}{the data \eqn{X_1, \ldots, X_T}}
 
-\item{predcoef}{the prediction coefficients in form of a list of (1) an array
+\item{predcoef}{the prediction coefficients in form of a list of an array
          \code{coef}, and two integer vectors \code{t}    and \code{N}. The two
        integer vectors provide the information for which indices \eqn{t} and
          segment lengths \eqn{N} the coefficients are to be interpreted;

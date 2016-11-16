@@ -43,7 +43,7 @@
 #' 
 #' @param which.deltas vector containing the \eqn{\delta}'s for which to
 #'                     to compute \eqn{f(\delta)},
-#' @param P_max        parameter \eqn{p_{\max}},
+#' @param p_max        parameter \eqn{p_{\max}},
 #' @param h            parameter \eqn{h},
 #' @param T            parameter \eqn{T},
 #' @param Ns           a vector containing the elements of the set
@@ -78,7 +78,7 @@
 #' }
 ################################################################################
 
-f <- function(which.deltas, P_max, h, T, Ns, m, a, sigma) {
+f <- function(which.deltas, p_max, h, T, Ns, m, a, sigma) {
   
   gamma <- function(k, u) {
     ## create a(u)
@@ -149,30 +149,30 @@ f <- function(which.deltas, P_max, h, T, Ns, m, a, sigma) {
     return (integrate(aux, 0, 1)$value)
   }
   
-  M_s  <- array(0, dim = c(P_max + 1) )
-  M_ls <- array(0, dim = c(P_max + 1, length(Ns)) ) 
+  M_s  <- array(0, dim = c(p_max + 1) )
+  M_ls <- array(0, dim = c(p_max + 1, length(Ns)) ) 
   
-  for (p1 in 0:P_max) {
+  for (p1 in 0:p_max) {
     s1 <- T - m - h + 1
     M_s[p1+1] <- MSPE( s1/T, m/T, p1, h, s1/T)
   }
   
-  for (p2 in 0:P_max) {
+  for (p2 in 0:p_max) {
     for (N.i in 1:length(Ns)) {
       M_ls[p2+1, N.i] <- MSPE( Ns[N.i]/T, m/T, p2, h, s1/T)
     }
   }
   
-  fdelta <- array(10^10, dim = c( length(which.deltas), P_max ) )
+  fdelta <- array(10^10, dim = c( length(which.deltas), p_max ) )
   
-  for (p_max in 1:P_max) {
-    for (p1 in 0:p_max) {
-      for (p2 in 0:p_max) {
+  for (p in 1:p_max) {
+    for (p1 in 0:p) {
+      for (p2 in 0:p) {
         for (N.i in 1:length(Ns)) {
           for (delta.i in 1:length(which.deltas)) {
             dif <- abs(M_s[p1+1] - (1+which.deltas[delta.i]) * M_ls[p2+1, N.i])
-            if (dif < fdelta[delta.i, p_max]) {
-              fdelta[delta.i, p_max] <- dif
+            if (dif < fdelta[delta.i, p]) {
+              fdelta[delta.i, ] <- dif
             }
           }
         }
@@ -180,6 +180,6 @@ f <- function(which.deltas, P_max, h, T, Ns, m, a, sigma) {
     }
   }
   
-  return(fdelta[,P_max])
+  return(fdelta[,p_max])
 
 }
