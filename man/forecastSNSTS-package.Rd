@@ -24,17 +24,23 @@ prediction errors for the resulting predictors.
 The core functionality of this R package is accessable via the function
 \code{\link{predCoef}}, which is used to compute the linear prediction
 coefficients, and the function \code{\link{MSPE}}, which is used to compute
-the empirical mean squared prediciton erros.
+the empirical mean squared prediciton erros. Further, the function
+\code{\link{f}} can be used to verify condition (10) of Theorem 3.1 in
+Kley et al (2016) for any given tvAR(p) model.
 
 The function \code{\link{tvARMA}} can be used to simulate time varying
 ARMA(p,q) time series.
+
+The function \code{\link{acfARp}} computes the autocovariances of a AR(p)
+process from the coefficients and innovations standard deviation.
 }
 \author{
 Tobias Kley
 }
 \references{
 Kley, T., Preuss, P. & Fryzlewicz, P. (2016).
-Predictive, finite-sample model choice for time series under stationarity and non-stationarity.
+Predictive, finite-sample model choice for time series under stationarity
+and non-stationarity.
 [cf. \url{https://arxiv.org/abs/1611.04460}]
 }
 

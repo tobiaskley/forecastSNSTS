@@ -2,13 +2,13 @@
 % Please edit documentation in R/acfARp.R
 \name{acfARp}
 \alias{acfARp}
-\title{Autocovariances of an AR(p) process}
+\title{Compute autocovariances of an AR(p) process}
 \usage{
 acfARp(a = NULL, sigma, k)
 }
 \arguments{
 \item{a}{vector \eqn{(a_1, \ldots, a_p)} of coefficients; default NULL,
-corresponding to p = 0, white noise with variance \eqn{sigma^2},}
+corresponding to p = 0, white noise with variance \eqn{\sigma^2},}
 
 \item{sigma}{standard deviation of \eqn{\varepsilon_t}; default 1,}
 
@@ -20,11 +20,10 @@ Returns autocovariance at lag k of the AR(p) process.
 \description{
 This functions returns the autocovariances \eqn{Cov(X_{t-k}, X_t)} of a
 stationary time series \eqn{(Y_t)} that fulfills the following equation:
-\deqn{Y_t = \sum_{j=1}^p a_j Y_{t-j,T} + \sigma(t/T) \varepsilon_{t} + \sum_{k=1}^q \sigma((t-k)/T) b_k(t/T) \varepsilon_{t-k},}
+\deqn{Y_t = \sum_{j=1}^p a_j Y_{t-j} + \sigma \varepsilon_{t},}
 where \eqn{\sigma > 0}, \eqn{\varepsilon_t} is white noise and
 \eqn{a_1, \ldots, a_p} are real numbers satisfying that the roots
-\eqn{z_0} of
-\deqn{Y_t = 1 - \sum_{j=1}^p a_j z^j}
+\eqn{z_0} of the polynomial \eqn{1 - \sum_{j=1}^p a_j z^j}
 lie strictly outside the unit circle.
 }
 \examples{
