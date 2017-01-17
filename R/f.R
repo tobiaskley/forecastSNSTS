@@ -2,8 +2,8 @@
 #' Compute \eqn{f(\delta)} for a tvAR(p) process
 #'
 #' This functions computes the quantity \eqn{f(\delta)} defined in (10) of
-#' Kley et al (2016) when the underlying process follows an tvAR(p) process.
-#' Recall that, to apply Theorem 3.1 in Kley et al (2016), the function
+#' Kley et al (2017) when the underlying process follows an tvAR(p) process.
+#' Recall that, to apply Theorem 3.1 in Kley et al (2017), the function
 #' \eqn{f(\delta)} is required to be positive, which can be verified with the
 #' numbers returned from this function.
 #' The function returns a vector with elements \eqn{f(\delta)} 
@@ -55,26 +55,26 @@
 #'                     of the innovations of the tvAR(p) process,
 #' 
 #' @return Returns     a vector with the values \eqn{f(\delta)}, as defined in
-#'                     (10) of Kley et al (2016), for each \eqn{\delta} in
+#'                     (10) of Kley et al (2017), for each \eqn{\delta} in
 #' 										 \code{which.delta}.
 #'
 #' @examples
 #' \dontrun{
 #' ## because computation is quite time-consuming.
-#' T <- 100
+#' n <- 100
 #' a <- list( function(u) {return(0.8+0.19*sin(4*pi*u))} )
 #' sigma <- function (u) {return(1)}
 #' 
-#' Ns <- seq( floor((T/2)^(4/5)), floor(T^(4/5)),
-#'            ceiling((floor(T^(4/5)) - floor((T/2)^(4/5)))/25) )
+#' Ns <- seq( floor((n/2)^(4/5)), floor(n^(4/5)),
+#'            ceiling((floor(n^(4/5)) - floor((n/2)^(4/5)))/25) )
 #' which.deltas <- c(0, 0.01, 0.05, 0.1, 0.15, 0.2, 0.4, 0.6)
 #' P_max <- 7
 #' H <- 1
-#' m <- floor(T^(.85)/4)
+#' m <- floor(n^(.85)/4)
 #' 
-#' # now replicate some results from Table 4 in Kley et al (2016)
-#' f( which.deltas, P_max, h = 1, T, Ns, m, a, sigma )
-#' f( which.deltas, P_max, h = 5, T, Ns, m, a, sigma )
+#' # now replicate some results from Table 4 in Kley et al (2017)
+#' f( which.deltas, P_max, h = 1, n - m, Ns, m, a, sigma )
+#' f( which.deltas, P_max, h = 5, n - m, Ns, m, a, sigma )
 #' }
 ################################################################################
 
@@ -89,7 +89,7 @@ f <- function(which.deltas, p_max, h, T, Ns, m, a, sigma) {
     acfARp(au, sigma(u), k )
   }
   
-  ## Define the function g_{D1}^{(p,h)} from (49) of Kley et al (2016)
+  ## Define the function g_{D1}^{(p,h)} from (49) of Kley et al (2017)
   g <- function( D1, p, h, u) {
     
     res <- gamma(0, u)
@@ -153,7 +153,7 @@ f <- function(which.deltas, p_max, h, T, Ns, m, a, sigma) {
   M_ls <- array(0, dim = c(p_max + 1, length(Ns)) ) 
   
   for (p1 in 0:p_max) {
-    s1 <- T - m - h + 1
+    s1 <- T - m - h
     M_s[p1+1] <- MSPE( s1/T, m/T, p1, h, s1/T)
   }
   

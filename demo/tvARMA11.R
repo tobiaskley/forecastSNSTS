@@ -1,6 +1,6 @@
 
 ## In this demo we demonstrate how the data analysis in Section 5 of
-## Kley et al (2016) can be performed, but with artificial data.
+## Kley et al (2017) can be performed, but with artificial data.
 
 ## To this end, we generate artificial data for the example analysis.
 ## We use a tvARMA(1,1) process with the following coefficient functions:
@@ -61,16 +61,16 @@ for (h in 1:H) {
   res_e[h, 5] <- min(M[h, , N != 0 & N >= N_min])
 }
 
-## A table similar to the top row from Table 5 in Kley et al (2016):
+## A table similar to the top row from Table 5 in Kley et al (2017):
 res_e
 
 ## compute the MSPE of the null predictor
 vr <- sum(X[(m0 + 1):m1]^2) / (m1 - m0)
 
-## A plot similar to the top plot from Figure 4 in Kley et al (2016)
+## A plot similar to the top plot from Figure 4 in Kley et al (2017)
 plot(mspe, vr = vr, N_min = N_min, h = 1, add.for.legend=15)
 
-## A plot similar to the bottom plot from Figure 4 in Kley et al (2016)
+## A plot similar to the bottom plot from Figure 4 in Kley et al (2017)
 plot(mspe, vr = vr, N_min = N_min, h = 6, add.for.legend=15)
 
 ## compute MSPE on the validation set 
@@ -105,5 +105,5 @@ for (h in 1:H) {
   res_t[h, 3] <- res_t[h, 1] / res_t[h, 2]
 }
 
-## A table similar to the bottom rows from Table 5 in Kley et al (2016)
+## A table similar to the bottom rows from Table 5 in Kley et al (2017)
 cbind(res_v, res_t)

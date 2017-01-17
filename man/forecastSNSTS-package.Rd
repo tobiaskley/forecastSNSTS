@@ -16,8 +16,8 @@ and to verify an assumption from a paper by the authors.
 \tabular{ll}{
    \cr Package: \tab forecastSNSTS
    \cr Type:    \tab Package
-   \cr Version: \tab 1.1-0
-   \cr Date:    \tab 2016-11-16
+   \cr Version: \tab 1.1-1
+   \cr Date:    \tab 2017-01-17
    \cr License: \tab GPL (>= 2)
  }
 }
@@ -28,7 +28,7 @@ The core functionality of this R package is accessable via the function
 coefficients, and the function \code{\link{MSPE}}, which is used to compute
 the empirical mean squared prediciton erros. Further, the function
 \code{\link{f}} can be used to verify condition (10) of Theorem 3.1 in
-Kley et al (2016) for any given tvAR(p) model.
+Kley et al (2017) for any given tvAR(p) model.
 The function \code{\link{tvARMA}} can be used to simulate time-varying
 ARMA(p,q) time series.
 The function \code{\link{acfARp}} computes the autocovariances of a AR(p)
@@ -38,7 +38,7 @@ process from the coefficients and innovations standard deviation.
 Tobias Kley
 }
 \references{
-Kley, T., Preuss, P. & Fryzlewicz, P. (2016).
+Kley, T., Preuss, P. & Fryzlewicz, P. (2017).
 Predictive, finite-sample model choice for time series under stationarity
 and non-stationarity.
 [cf. \url{https://arxiv.org/abs/1611.04460}]
