@@ -2,7 +2,7 @@ context("f")
 
 # In this file we test the f function
 
-test_that("function f returns valus from paper", {
+test_that("function f returns values from paper", {
 
   ## this just takes too long?
   skip_on_cran()
@@ -18,12 +18,12 @@ test_that("function f returns valus from paper", {
   m <- floor(n^(.85)/4)
   
   res1 <- f( which.deltas, P_max, h = 1, n, Ns, m, a, sigma )
-  expRes1 <- c(0.000000e+00, 5.349073e-05, 5.069266e-05, 2.326551e-03, 5.347122e-02,
-               1.046159e-01, 3.091946e-01, 1.261984e-01)
+  expRes1 <- c(0.000000e+00, 4.976379e-05, 1.955854e-05, 1.173058e-04, 4.847858e-02,
+               9.983429e-02, 2.494558e-01, 2.182397e-02)
 
   res5 <- f( which.deltas, P_max, h = 5, n, Ns, m, a, sigma )
-  expRes5 <- c(0.000000e+00, 8.988492e-05, 5.753086e-05, 7.388015e-04, 1.835028e-04,
-               3.178430e-04, 1.589932e-02, 3.535490e-01)
+  expRes5 <- c(0.000000e+00, 4.449795e-05, 5.454015e-05, 2.393047e-04, 6.188790e-05,
+               1.886483e-03, 2.918796e-03, 3.293354e-01)
   
   expect_equal(res1, expRes1, tolerance = 1e-5)
   expect_equal(res5, expRes5, tolerance = 1e-5)
