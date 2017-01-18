@@ -8,7 +8,7 @@ Description: Methods to compute linear h-step ahead prediction coefficients base
     on localised and iterated Yule-Walker estimates and empirical mean squared
     prediction errors for the resulting predictors. Also, functions to compute
     autocovariances for AR(p) processes, to simulate tvARMA(p,q) time series,
-    and to verify an assumption from a paper by the authors.
+    and to verify an assumption from Kley et al. (2017) <arxiv:1611.04460>.
 Depends:
     R (>= 3.2.3)
 License: GPL (>= 2)
