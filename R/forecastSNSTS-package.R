@@ -8,14 +8,14 @@ NULL
 #' on localised and iterated Yule-Walker estimates and empirical mean squared
 #' prediction errors for the resulting predictors. Also, functions to compute
 #' autocovariances for AR(p) processes, to simulate tvARMA(p,q) time series,
-#' and to verify an assumption from Kley et al. (2017) <arxiv:1611.04460>.
+#' and to verify an assumption from Kley et al. (2017).
 #'
 #' @details
 #'  \tabular{ll}{
 #'    \cr Package: \tab forecastSNSTS
 #'    \cr Type:    \tab Package
 #'    \cr Version: \tab 1.1-1
-#'    \cr Date:    \tab 2017-01-18
+#'    \cr Date:    \tab 2017-01-19
 #'    \cr License: \tab GPL (>= 2)
 #'  }
 #'
