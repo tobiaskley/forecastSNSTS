@@ -71,7 +71,7 @@ test_that("trMAPE computation works", {
       
       # It should also work without the predcoef previously computed.
       cppRes1 <- MAPE(X, m1 = m1, m2 = m2, P = P, H = H, N = N, trimLo=0.2, trimUp=0.3)
-      expect_equal(sum( (cppRes1$mspe - naiveRes)^2 ), 0)
+      expect_equal(sum( (cppRes1$mape - naiveRes)^2 ), 0)
     })
 
 test_that("parameter validation works properly", {
