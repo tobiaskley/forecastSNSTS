@@ -37,4 +37,3 @@ acfARp(a = c(a1(1/2), a2(1/2)), sigma = 1, k = -1)
 # local autocovariance for u === 1/2: the variance
 acfARp(a = c(a1(1/2), a2(1/2)), sigma = 1, k = 0)
 }
-

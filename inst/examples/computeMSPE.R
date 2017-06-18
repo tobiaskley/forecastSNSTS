@@ -1,5 +1,3 @@
-
-
 T <- 50
 m <- 10
 
@@ -11,7 +9,7 @@ N_min <- 20
 X <- rnorm(T)
 
 
-mspe <- MSPE(X, m, p_max, H, N = c(0, N_min:(T-m-H)))
+mspe <- MSPE(X, m1 = T - m + 1, m2 = T, P = P, H = H, N = c(0, N_min:(T-m-H)))
 N <- mspe$N
 M <- mspe$mspe
 

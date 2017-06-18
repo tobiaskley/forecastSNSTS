@@ -1,15 +1,15 @@
 Package: forecastSNSTS
 Title: Forecasting for Stationary and Non-Stationary Time Series
-Version: 1.1-1
+Version: 1.2-0
 Authors@R: c(person("Tobias", "Kley", email = "t.kley@lse.ac.uk", role = c("aut", "cre")),
              person("Philip", "Preuss", email = "philip.preuss@rub.de", role = c("aut")),
              person("Piotr", "Fryzlewicz", email = "p.fryzlewicz@lse.ac.uk", role = c("aut")))
 Description: Methods to compute linear h-step ahead prediction coefficients based
     on localised and iterated Yule-Walker estimates and empirical mean squared
-    prediction errors for the resulting predictors. Also, functions to compute
-    autocovariances for AR(p) processes, to simulate tvARMA(p,q) time series,
-    and to verify an assumption from Kley et al. (2017),
-    Preprint arXiv:1611.04460 <http://arxiv.org/abs/1611.04460>.
+    and absolute prediction errors for the resulting predictors. Also, functions
+    to compute autocovariances for AR(p) processes, to simulate tvARMA(p,q) time
+    series, and to verify an assumption from Kley et al. (2017),
+    Preprint <http://personal.lse.ac.uk/kley/forecastSNSTS.pdf>.
 Depends:
     R (>= 3.2.3)
 License: GPL (>= 2)
@@ -20,13 +20,13 @@ LazyData: true
 LinkingTo: Rcpp
 Imports:
     Rcpp
-Collate:
+Collate: 
     'RcppExports.R'
     'acfARp.R'
     'f.R'
     'forecastSNSTS-package.R'
+    'measure-of-accuracy.R'
     'models.R'
-    'mspe.R'
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 Suggests:
     testthat

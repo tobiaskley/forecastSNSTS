@@ -33,8 +33,7 @@ for (h in 1:H) {
 }
 
 
-
-test_that("mspe computation works", {
+test_that("MSPE computation works", {
   predcoef <- predCoef(X, P, H, (m1-H):(m2-1), N )
   cppRes <- MSPE(X, predcoef, m1, m2, P, H, N)
   expect_equal(sum( (cppRes$mspe - naiveRes)^2 ), 0)
@@ -43,6 +42,37 @@ test_that("mspe computation works", {
   cppRes1 <- MSPE(X, m1 = m1, m2 = m2, P = P, H = H, N = N)
   expect_equal(sum( (cppRes1$mspe - naiveRes)^2 ), 0)
 })
+
+naiveRes <- array(0, dim=c(H, P, length(N)))
+alpha1 <- 0.2
+alpha2 <- 0.3
+for (h in 1:H) {
+  for (j.N in 1:length(N)) {
+    for (i in 1:P) {
+      aux <- rep(0, m2)
+      for (t in (m1-h):(m2-h)) { 
+        # compute forecast
+        coef <- predCoef(X, P, h, t, N[j.N])$coef[i, 1:i, h, 1, 1]
+        Xhat <- sum( coef * X[t:(t-i+1)])
+        aux[t] <- abs(X[t+h] - Xhat)
+      }
+      aux[(m1-h):(m2-h)] <- sort(aux[(m1-h):(m2-h)]) 
+      m_lo <- m1 - h + floor(alpha1*(m2-m1+1))
+      m_up <- m2 - h - floor(alpha2*(m2-m1+1))
+      naiveRes[h, i, j.N] <- sum(aux[m_lo:m_up]) / (m_up - m_lo + 1)
+    }
+  }
+}
+
+test_that("trMAPE computation works", {
+      predcoef <- predCoef(X, P, H, (m1-H):(m2-1), N )
+      cppRes <- MAPE(X, predcoef, m1, m2, P, H, N, trimLo=0.2, trimUp=0.3)
+      expect_equal(sum( (cppRes$mspe - naiveRes)^2 ), 0)
+      
+      # It should also work without the predcoef previously computed.
+      cppRes1 <- MAPE(X, m1 = m1, m2 = m2, P = P, H = H, N = N, trimLo=0.2, trimUp=0.3)
+      expect_equal(sum( (cppRes1$mspe - naiveRes)^2 ), 0)
+    })
 
 test_that("parameter validation works properly", {
   expect_error( cppRes <- MSPE(X, "not a list", m1, m2, P, H, N) )

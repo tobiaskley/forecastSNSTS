@@ -42,4 +42,3 @@ function.
 \seealso{
 \code{\link{MSPE}}
 }
-

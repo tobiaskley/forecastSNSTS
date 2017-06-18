@@ -25,9 +25,9 @@
 #'
 #' @examples
 #' ## Taken from Section 6 in Dahlhaus (1997, AoS)
-#' a1 <- function(u) {1.8 * cos(1.5 - cos(4*pi*u))}
+#' a1 <- function(u) {1.8 * cos(1.5 - cos(4 * pi * u))}
 #' a2 <- function(u) {-0.81}
-#' plot(tvARMA(128, a = list(a1,a2), b = list()), type="l")
+#' plot(tvARMA(128, a = list(a1, a2), b = list()), type = "l")
 ################################################################################
 tvARMA <- function(T = 128, a = list(), b = list(), sigma = function(u) {return(1)},
     innov = function(n) {rnorm(n, 0, 1)} ) {
@@ -52,5 +52,5 @@ tvARMA <- function(T = 128, a = list(), b = list(), sigma = function(u) {return(
   z <- innov(T+q)
   x_init <- innov(max(p,q)) ## Warm up a stationary ARMA(p,q) with a(0) and b(0)?
   
-  return(.tvARMA(z, x_init, A, B, Sigma))
+  return(tvARMAcpp(z, x_init, A, B, Sigma))
 }

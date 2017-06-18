@@ -33,8 +33,7 @@ is white noise.
 }
 \examples{
 ## Taken from Section 6 in Dahlhaus (1997, AoS)
-a1 <- function(u) {1.8 * cos(1.5 - cos(4*pi*u))}
+a1 <- function(u) {1.8 * cos(1.5 - cos(4 * pi * u))}
 a2 <- function(u) {-0.81}
-plot(tvARMA(128, a = list(a1,a2), b = list()), type="l")
+plot(tvARMA(128, a = list(a1, a2), b = list()), type = "l")
 }
-

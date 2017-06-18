@@ -1,3 +1,10 @@
+forecastSNSTS 1.2-0
+===================
+
+ o Added MAPE function.
+ o Added parameters trimLo and trimUp to MSPE function.
+
+
 forecastSNSTS 1.1-1
 ===================
 
@@ -9,7 +16,7 @@ forecastSNSTS 1.1-0
 
  o Added function acfARp to compute autocovariances of AR(p) processes.
  o Added function f that can be used to verify assumption (10) from
-   Theorem 3.1 in Kley et al (2016).
+   Theorem 3.1 in Kley et al. (2016).
 
 
 forecastSNSTS 1.0-0

@@ -52,7 +52,7 @@ The Durbin-Levinson Algorithm is used to successively compute the solutions to t
 Yule-Walker equations (cf. Brockwell/Davis (1991), Proposition 5.2.1).
 To compute the \eqn{h}-step ahead coefficients we use the recursive relationship
 \deqn{\hat v_{i,N,T}^{(p)}(t,h) = \hat a_{i,N,T}^{(p)}(t) \hat v_{1,N,T}^{(p,h-1)}(t) + \hat v_{i+1,N,T}^{(p,h-1)}(t) I\{i \leq p-1\},}
-(cf. the proof of Lemma C.3 in Kley et al (2017)).
+(cf. the proof of Lemma E.3 in Kley et al. (2017)).
 }
 \examples{
 T <- 100
@@ -75,9 +75,4 @@ res <- pcoef$coef[p, 1:p, h, pcoef$t == t, pcoef$N == N]
 \references{
 Brockwell, P. J. & Davis, R. A. (1991).
 Time Series: Theory and Methods. Springer, New York.
-
-Kley, T., Preuss, P. & Fryzlewicz, P. (2016).
-Predictive model choice in time series analysis under stationarity and non-stationarity.
-[cf. \url{personal.lse.ac.uk/kley/forecastLSTS.pdf}]
 }
-

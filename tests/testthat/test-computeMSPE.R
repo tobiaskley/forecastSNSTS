@@ -19,20 +19,44 @@ h <- 1
 
 coef <- predCoef(X, p, h, (T-m-h+1):(T-h), c(0,seq(p+1,T-m-h)))$coef
 
-naiveRes <- matrix(0, nrow=p, ncol=dim(coef)[5])
-for (j in 1:dim(coef)[5])
-for (i in 1:p) {
-  for (t in (T-m-h+1):(T-h)) {
-    # compute forecast
-    Xhat <- sum(coef[i,1:i,h,t-(T-m-h),j] * X[t:(t-i+1)])
-    naiveRes[i,j] <- naiveRes[i,j] + ( X[t+h] - Xhat )^2
-  }
-  naiveRes[i,j] <- naiveRes[i,j] / m
-}
- 
 
-cppRes <- .computeMSPE(X, coef, 1, (T-m-h+1):(T-h))
+trimmedMSPE <- function(alph1=0, alph2=0) {
+  
+  auxRes <- array(0, dim = c(m, p, dim(coef)[5]))
+  naiveRes <- matrix(0, nrow=p, ncol=dim(coef)[5])
+  
+  for (j in 1:dim(coef)[5]) {
+    for (i in 1:p) {
+      mm <- 1
+      for (t in (T-m-h+1):(T-h)) {
+        # compute forecast
+        Xhat <- sum(coef[i,1:i,h,t-(T-m-h),j] * X[t:(t-i+1)])
+        auxRes[mm, i, j] <- ( X[t+h] - Xhat )^2
+        mm <- mm+1
+      }
+      auxRes[, i, j] <- sort(auxRes[, i, j])
+      
+      # from mean.default
+      lo <- floor(m * alph1) + 1
+      hi <- m - floor(m * alph2)
+      
+      naiveRes[i, j] <- mean(auxRes[lo:hi, i, j])
+    }
+  }
+  return(naiveRes)
+}
+
+naiveRes <- trimmedMSPE(0, 0)
+cppRes <- computeMSPEcpp(X, coef, 1, (T-m-h+1):(T-h), 1, 0, 0)
 
 test_that("mspe computation works", {
   expect_equal(sum( (cppRes - naiveRes)^2 ), 0)
 })
+
+naiveRes <- trimmedMSPE(0.1, 0.1)
+cppRes <- computeMSPEcpp(X, coef, 1, (T-m-h+1):(T-h), 1, 0.1, 0.1)
+
+test_that("mspe computation works with symmetric trimming", {
+      expect_equal(sum( (cppRes - naiveRes)^2 ), 0)
+    })
+

@@ -5,7 +5,8 @@
 \title{Mean squared \eqn{h}-step ahead prediction errors}
 \usage{
 MSPE(X, predcoef, m1 = length(X)/10, m2 = length(X), P = 1, H = 1,
-  N = c(0, seq(P + 1, m1 - H + 1)))
+  N = c(0, seq(P + 1, m1 - H + 1)), type = c("mspe", "msae"), trimLo = 0,
+  trimUp = 0)
 }
 \arguments{
 \item{X}{the data \eqn{X_1, \ldots, X_T}}
@@ -31,6 +32,13 @@ must not be larger than \code{dim(predcoef$coef)[3]}.}
 \item{N}{vector with the segment sizes to be used, 0 corresponds to
            using 1, ..., t;
 has to be a subset of predcoef$N.}
+
+\item{type}{indicating what type of measure of accuracy is to be computed;
+1: mspe, 2: msae}
+
+\item{trimLo}{percentage of lower observations to be trimmed away}
+
+\item{trimUp}{percentage of upper observations to be trimmed away}
 }
 \value{
 Returns an object of type \code{MSPE} that has \code{mspe}, an array
@@ -42,8 +50,10 @@ Returns an object of type \code{MSPE} that has \code{mspe}, an array
 This function computes the empirical mean squared prediction errors for
 a collection of \eqn{h}-step ahead, linear predictors (\eqn{h=1,\ldots,H})
 of observations \eqn{X_{t+h}}, where \eqn{m_1 \leq t+h \leq m_2}, for two
-indices \eqn{m_1} and \eqn{m_2}. The resulting array provides
-\deqn{\frac{1}{m_2 - m_1 + 1} \sum_{t=m_1-h+1}^{m_2 - h} (X_{t+h} - (X_t, \ldots, X_{t-p+1}) \hat v_{N,T}^{(p,h)}(t) )^2.}
+indices \eqn{m_1} and \eqn{m_2}. The resulting array provides either
+\deqn{\frac{1}{m_{\rm lo} - m_{\rm up} + 1} \sum_{t=m_{\rm lo}}^{m_{\rm up}} (X_{t+h} - (X_t, \ldots, X_{t-p+1}) \hat v_{N,T}^{(p,h)}(t) )^2,}
+with \eqn{m_{\rm lo} := m_1-h+1} and \eqn{m_{\rm up} := m_2 - h}, or
+\deqn{\frac{1}{m_{\rm lo} - m_{\rm up} + 1} \sum_{t=m_{\rm lo}}^{m_{\rm up}} |X_{t+h} - (X_t, \ldots, X_{t-p+1}) \hat v_{N,T}^{(p,h)}(t) |,}
 for every \eqn{h=1,..,}\code{H}, \eqn{p=1,..,}\code{P}, and \eqn{N \in}\code{N}.
 }
 \examples{
@@ -59,4 +69,3 @@ mspe <- MSPE(X, pcoef, 991, 1000, 3, 1, c(0, Nmin:(T-m-H)))
 
 plot(mspe, vr = 1, Nmin = Nmin)
 }
-

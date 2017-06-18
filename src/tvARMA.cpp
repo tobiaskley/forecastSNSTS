@@ -3,12 +3,24 @@
 using namespace Rcpp;
 
 //################################################################################
-// Workhorse function for tvARMA time series generation
-// TODO: Document
+//' Workhorse function for tvARMA time series generation
+//'
+//' More explanation!
+//'
+//' @aliases tvARMAcpp
+//'
+//' @param z a ...
+//' @param x_int a ...
+//' @param A ...
+//' @param B a ...
+//' @param Sigma a ...
+//'
+//' @return Returns a ...
+//'
 //################################################################################
 
-// [[Rcpp::export(.tvARMA)]]
-NumericVector tvARMA( NumericVector z, NumericVector x_init, NumericMatrix A,
+// [[Rcpp::export]]
+NumericVector tvARMAcpp( NumericVector z, NumericVector x_init, NumericMatrix A,
                       NumericMatrix B, NumericVector Sigma) {
 
    int T = A.nrow()-1; 

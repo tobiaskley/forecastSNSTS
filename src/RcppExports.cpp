@@ -5,9 +5,9 @@
 
 using namespace Rcpp;
 
-// computeMSPE
-NumericVector computeMSPE(NumericVector X, NumericVector coef, int h, IntegerVector t);
-RcppExport SEXP forecastSNSTS_computeMSPE(SEXP XSEXP, SEXP coefSEXP, SEXP hSEXP, SEXP tSEXP) {
+// computeMSPEcpp
+NumericVector computeMSPEcpp(NumericVector X, NumericVector coef, int h, IntegerVector t, int type, double trimLo, double trimUp);
+RcppExport SEXP forecastSNSTS_computeMSPEcpp(SEXP XSEXP, SEXP coefSEXP, SEXP hSEXP, SEXP tSEXP, SEXP typeSEXP, SEXP trimLoSEXP, SEXP trimUpSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -15,7 +15,10 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< NumericVector >::type coef(coefSEXP);
     Rcpp::traits::input_parameter< int >::type h(hSEXP);
     Rcpp::traits::input_parameter< IntegerVector >::type t(tSEXP);
-    rcpp_result_gen = Rcpp::wrap(computeMSPE(X, coef, h, t));
+    Rcpp::traits::input_parameter< int >::type type(typeSEXP);
+    Rcpp::traits::input_parameter< double >::type trimLo(trimLoSEXP);
+    Rcpp::traits::input_parameter< double >::type trimUp(trimUpSEXP);
+    rcpp_result_gen = Rcpp::wrap(computeMSPEcpp(X, coef, h, t, type, trimLo, trimUp));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -34,9 +37,9 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// tvARMA
-NumericVector tvARMA(NumericVector z, NumericVector x_init, NumericMatrix A, NumericMatrix B, NumericVector Sigma);
-RcppExport SEXP forecastSNSTS_tvARMA(SEXP zSEXP, SEXP x_initSEXP, SEXP ASEXP, SEXP BSEXP, SEXP SigmaSEXP) {
+// tvARMAcpp
+NumericVector tvARMAcpp(NumericVector z, NumericVector x_init, NumericMatrix A, NumericMatrix B, NumericVector Sigma);
+RcppExport SEXP forecastSNSTS_tvARMAcpp(SEXP zSEXP, SEXP x_initSEXP, SEXP ASEXP, SEXP BSEXP, SEXP SigmaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -45,7 +48,19 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
     Rcpp::traits::input_parameter< NumericMatrix >::type B(BSEXP);
     Rcpp::traits::input_parameter< NumericVector >::type Sigma(SigmaSEXP);
-    rcpp_result_gen = Rcpp::wrap(tvARMA(z, x_init, A, B, Sigma));
+    rcpp_result_gen = Rcpp::wrap(tvARMAcpp(z, x_init, A, B, Sigma));
     return rcpp_result_gen;
 END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"forecastSNSTS_computeMSPEcpp", (DL_FUNC) &forecastSNSTS_computeMSPEcpp, 7},
+    {"forecastSNSTS_predCoef", (DL_FUNC) &forecastSNSTS_predCoef, 5},
+    {"forecastSNSTS_tvARMAcpp", (DL_FUNC) &forecastSNSTS_tvARMAcpp, 5},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_forecastSNSTS(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }
