@@ -67,7 +67,7 @@ for (h in 1:H) {
 test_that("trMAPE computation works", {
       predcoef <- predCoef(X, P, H, (m1-H):(m2-1), N )
       cppRes <- MAPE(X, predcoef, m1, m2, P, H, N, trimLo=0.2, trimUp=0.3)
-      expect_equal(sum( (cppRes$mspe - naiveRes)^2 ), 0)
+      expect_equal(sum( (cppRes$mape - naiveRes)^2 ), 0)
       
       # It should also work without the predcoef previously computed.
       cppRes1 <- MAPE(X, m1 = m1, m2 = m2, P = P, H = H, N = N, trimLo=0.2, trimUp=0.3)
