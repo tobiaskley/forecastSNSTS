@@ -12,7 +12,7 @@ naive_predCoef <- function (X, p, h, t, N) {
   gamma <- rep(0, p+1)
   for (k in 0:p) {
     l <- (t-N+abs(k)+1):t
-    gamma[k+1] <- sum(X[l-abs(k)] * X[l]) / (N-k)
+    gamma[k+1] <- sum(X[l-abs(k)] * X[l]) / N
   }
   
   # Now define the matrix Gam_p and the vector gam_p
