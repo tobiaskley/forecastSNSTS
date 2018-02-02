@@ -7,7 +7,7 @@ using namespace Rcpp;
 //'
 //' More explanation!
 //'
-//' @aliases tvARMAcpp
+//' @name tvARMAcpp
 //'
 //' @param z a ...
 //' @param x_int a ...

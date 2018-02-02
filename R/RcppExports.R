@@ -21,7 +21,7 @@
 #' \deqn{\frac{1}{|\mathcal{T}|} \sum_{t \in \mathcal{T}} (X_{t+h} - (X_t, \ldots, X_{t-p+1}) \hat v_{N[j.N],T}^{(p,h)}(t))^2}
 #' is then stored in the resulting matrix at position \code{(p, j.N)}. 
 #'
-#' @aliases computeMSPEcpp
+#' @name computeMSPEcpp
 #'
 #' @param X the data
 #' @param coef the array of coefficients.
@@ -36,7 +36,7 @@
 NULL
 
 computeMSPEcpp <- function(X, coef, h, t, type, trimLo, trimUp) {
-    .Call('forecastSNSTS_computeMSPEcpp', PACKAGE = 'forecastSNSTS', X, coef, h, t, type, trimLo, trimUp)
+    .Call('_forecastSNSTS_computeMSPEcpp', PACKAGE = 'forecastSNSTS', X, coef, h, t, type, trimLo, trimUp)
 }
 
 #' \eqn{h}-step Prediction coefficients
@@ -111,14 +111,14 @@ computeMSPEcpp <- function(X, coef, h, t, type, trimLo, trimUp) {
 NULL
 
 predCoef <- function(X, P, H, t, N) {
-    .Call('forecastSNSTS_predCoef', PACKAGE = 'forecastSNSTS', X, P, H, t, N)
+    .Call('_forecastSNSTS_predCoef', PACKAGE = 'forecastSNSTS', X, P, H, t, N)
 }
 
 #' Workhorse function for tvARMA time series generation
 #'
 #' More explanation!
 #'
-#' @aliases tvARMAcpp
+#' @name tvARMAcpp
 #'
 #' @param z a ...
 #' @param x_int a ...
@@ -131,6 +131,6 @@ predCoef <- function(X, P, H, t, N) {
 NULL
 
 tvARMAcpp <- function(z, x_init, A, B, Sigma) {
-    .Call('forecastSNSTS_tvARMAcpp', PACKAGE = 'forecastSNSTS', z, x_init, A, B, Sigma)
+    .Call('_forecastSNSTS_tvARMAcpp', PACKAGE = 'forecastSNSTS', z, x_init, A, B, Sigma)
 }
 

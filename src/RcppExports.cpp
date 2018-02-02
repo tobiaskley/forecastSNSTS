@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // computeMSPEcpp
 NumericVector computeMSPEcpp(NumericVector X, NumericVector coef, int h, IntegerVector t, int type, double trimLo, double trimUp);
-RcppExport SEXP forecastSNSTS_computeMSPEcpp(SEXP XSEXP, SEXP coefSEXP, SEXP hSEXP, SEXP tSEXP, SEXP typeSEXP, SEXP trimLoSEXP, SEXP trimUpSEXP) {
+RcppExport SEXP _forecastSNSTS_computeMSPEcpp(SEXP XSEXP, SEXP coefSEXP, SEXP hSEXP, SEXP tSEXP, SEXP typeSEXP, SEXP trimLoSEXP, SEXP trimUpSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -24,7 +24,7 @@ END_RCPP
 }
 // predCoef
 List predCoef(NumericVector X, int P, int H, IntegerVector t, IntegerVector N);
-RcppExport SEXP forecastSNSTS_predCoef(SEXP XSEXP, SEXP PSEXP, SEXP HSEXP, SEXP tSEXP, SEXP NSEXP) {
+RcppExport SEXP _forecastSNSTS_predCoef(SEXP XSEXP, SEXP PSEXP, SEXP HSEXP, SEXP tSEXP, SEXP NSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -39,7 +39,7 @@ END_RCPP
 }
 // tvARMAcpp
 NumericVector tvARMAcpp(NumericVector z, NumericVector x_init, NumericMatrix A, NumericMatrix B, NumericVector Sigma);
-RcppExport SEXP forecastSNSTS_tvARMAcpp(SEXP zSEXP, SEXP x_initSEXP, SEXP ASEXP, SEXP BSEXP, SEXP SigmaSEXP) {
+RcppExport SEXP _forecastSNSTS_tvARMAcpp(SEXP zSEXP, SEXP x_initSEXP, SEXP ASEXP, SEXP BSEXP, SEXP SigmaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -54,9 +54,9 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"forecastSNSTS_computeMSPEcpp", (DL_FUNC) &forecastSNSTS_computeMSPEcpp, 7},
-    {"forecastSNSTS_predCoef", (DL_FUNC) &forecastSNSTS_predCoef, 5},
-    {"forecastSNSTS_tvARMAcpp", (DL_FUNC) &forecastSNSTS_tvARMAcpp, 5},
+    {"_forecastSNSTS_computeMSPEcpp", (DL_FUNC) &_forecastSNSTS_computeMSPEcpp, 7},
+    {"_forecastSNSTS_predCoef", (DL_FUNC) &_forecastSNSTS_predCoef, 5},
+    {"_forecastSNSTS_tvARMAcpp", (DL_FUNC) &_forecastSNSTS_tvARMAcpp, 5},
     {NULL, NULL, 0}
 };
 

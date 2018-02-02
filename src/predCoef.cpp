@@ -155,8 +155,8 @@ List predCoef(NumericVector X, int P, int H, IntegerVector t, IntegerVector N) {
             for (int j = 0; j < n-k; j++) {
                res += x[j]*x[j+k];
             }
-            gamma[k] = res / (n-k);
-            // gamma[k] = res / n;
+            //gamma[k] = res / (n-k);
+            gamma[k] = res / n;
          }
          
          // Iteration 0
