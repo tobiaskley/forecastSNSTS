@@ -21,7 +21,7 @@ using namespace Rcpp;
 //' where
 //' \deqn{\hat\Gamma_{N,T}^{(p)}(t) := \big[ \hat \gamma_{i-j;N,T}(t) \big]_{i,j = 1, \ldots, p}, \quad \hat \gamma_{N,T}^{(p)}(t) := \big( \hat \gamma_{1;N,T}(t), \ldots, \hat \gamma_{p;N,T}(t) \big)'}
 //' and
-//' \deqn{\hat \gamma_{k;N,T}(t) := \frac{1}{N-|k|} \sum_{\ell=t-N+|k|+1}^{t} X_{\ell-|k|,T} X_{\ell,T}}
+//' \deqn{\hat \gamma_{k;N,T}(t) := \frac{1}{N} \sum_{\ell=t-N+|k|+1}^{t} X_{\ell-|k|,T} X_{\ell,T}}
 //' is the usual lag-\eqn{k} autocovariance estimator (without mean adjustment),
 //' computed from the observations \eqn{X_{t-N+1}, \ldots, X_{t}}.
 //'
