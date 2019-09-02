@@ -1,5 +1,5 @@
 ################################################################################
-#' Simulation of an tvARMA(p) time series.
+#' Simulation of an tvARMA(p,q) time series.
 #'
 #' Returns a simulated time series \eqn{Y_{1,T}, ..., Y_{T,T}} that fulfills
 #' the following equation:

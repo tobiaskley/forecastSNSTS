@@ -1,9 +1,9 @@
 ################################################################################
 #' Compute \eqn{f(\delta)} for a tvAR(p) process
 #'
-#' This functions computes the quantity \eqn{f(\delta)} defined in (10) of
-#' Kley et al. (2017) when the underlying process follows an tvAR(p) process.
-#' Recall that, to apply Theorem 3.1 in Kley et al. (2017), the function
+#' This functions computes the quantity \eqn{f(\delta)} defined in (24) of
+#' Kley et al. (2019) when the underlying process follows an tvAR(p) process.
+#' Recall that, to apply Theorem 3.1 in Kley et al. (2019), the function
 #' \eqn{f(\delta)} is required to be positive, which can be verified with the
 #' numbers returned from this function.
 #' The function returns a vector with elements \eqn{f(\delta)} 

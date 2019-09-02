@@ -1,3 +1,11 @@
+forecastSNSTS 1.3-0
+===================
+
+ o Fixed a bug in YW estimator. 1/(n-k) instead of 1/n was used.
+ o Updated the documentation of predCoef to reflect the recent fix.
+ o Updated references to the paper.
+
+
 forecastSNSTS 1.2-0
 ===================
 

@@ -3,3 +3,7 @@
 .project
 .Rbuildignore
 .settings
+.Rproj.user
+forecastSNSTS.Rproj
+.Rhistory
+
