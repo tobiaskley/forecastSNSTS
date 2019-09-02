@@ -3,7 +3,6 @@
 \name{plot.measure-of-accuracy}
 \alias{plot.measure-of-accuracy}
 \alias{plot.MSPE}
-\alias{plot.measure-of-accuracy}
 \alias{plot.MAPE}
 \title{Plot a \code{MSPE} or \code{MAPE} object}
 \usage{

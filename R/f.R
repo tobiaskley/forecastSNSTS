@@ -55,7 +55,7 @@
 #'                     of the innovations of the tvAR(p) process,
 #' 
 #' @return Returns     a vector with the values \eqn{f(\delta)}, as defined in
-#'                     (10) of Kley et al. (2017), for each \eqn{\delta} in
+#'                     (24) of Kley et al. (2019), where it is now denoted by \eqn{q(\delta)}, for each \eqn{\delta} in
 #' 										 \code{which.delta}.
 #'
 #' @examples

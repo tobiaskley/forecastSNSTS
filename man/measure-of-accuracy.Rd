@@ -3,7 +3,6 @@
 \name{measure-of-accuracy}
 \alias{measure-of-accuracy}
 \alias{MSPE}
-\alias{measure-of-accuracy}
 \alias{MAPE}
 \title{Mean squared or absolute \eqn{h}-step ahead prediction errors}
 \usage{

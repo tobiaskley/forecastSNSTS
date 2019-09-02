@@ -3,7 +3,7 @@
 \name{ts-models-tvARMA}
 \alias{ts-models-tvARMA}
 \alias{tvARMA}
-\title{Simulation of an tvARMA(p) time series.}
+\title{Simulation of an tvARMA(p,q) time series.}
 \usage{
 tvARMA(T = 128, a = list(), b = list(), sigma = function(u) {    
   return(1) }, innov = function(n) {     rnorm(n, 0, 1) })

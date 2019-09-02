@@ -29,13 +29,13 @@ of the innovations of the tvAR(p) process,}
 }
 \value{
 Returns     a vector with the values \eqn{f(\delta)}, as defined in
-                    (10) of Kley et al. (2017), for each \eqn{\delta} in
+                    (24) of Kley et al. (2019), where it is now denoted by \eqn{q(\delta)}, for each \eqn{\delta} in
 										 \code{which.delta}.
 }
 \description{
-This functions computes the quantity \eqn{f(\delta)} defined in (10) of
-Kley et al. (2017) when the underlying process follows an tvAR(p) process.
-Recall that, to apply Theorem 3.1 in Kley et al. (2017), the function
+This functions computes the quantity \eqn{f(\delta)} defined in (24) of
+Kley et al. (2019) when the underlying process follows an tvAR(p) process.
+Recall that, to apply Theorem 3.1 in Kley et al. (2019), the function
 \eqn{f(\delta)} is required to be positive, which can be verified with the
 numbers returned from this function.
 The function returns a vector with elements \eqn{f(\delta)} 
