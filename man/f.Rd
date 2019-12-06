@@ -83,7 +83,7 @@ P_max <- 7
 H <- 1
 m <- floor(n^(.85)/4)
 
-# now replicate some results from Table 4 in Kley et al. (2017)
+# now replicate some results from Table 4 in Kley et al. (2019)
 f( which.deltas, P_max, h = 1, n - m, Ns, m, a, sigma )
 f( which.deltas, P_max, h = 5, n - m, Ns, m, a, sigma )
 }

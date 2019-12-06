@@ -29,7 +29,7 @@ using namespace Rcpp;
 //' Yule-Walker equations (cf. Brockwell/Davis (1991), Proposition 5.2.1).
 //' To compute the \eqn{h}-step ahead coefficients we use the recursive relationship
 //' \deqn{\hat v_{i,N,T}^{(p)}(t,h) = \hat a_{i,N,T}^{(p)}(t) \hat v_{1,N,T}^{(p,h-1)}(t) + \hat v_{i+1,N,T}^{(p,h-1)}(t) I\{i \leq p-1\},}
-//' (cf. the proof of Lemma E.3 in Kley et al. (2017)).
+//' (cf. Section 3.2, Step 3, in Kley et al. (2019)).
 //'
 //' @name predCoef
 //' @export
